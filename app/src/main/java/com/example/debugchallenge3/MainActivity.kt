@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     private fun getDefinition(word: String): String{
         var response = ""
         try {
-            response = URL("https://api.dictionaryapi.dev/api/v2/entries/en/$word").readText(Charsets.UTF_8)
+            response = URL("https://api.dictionaryapi.dev/api/v2/entries/en/house").readText(Charsets.UTF_8)
         }catch (e: Exception){
             println("Error: $e")
         }
@@ -76,8 +76,8 @@ class MainActivity : AppCompatActivity() {
             val main = jsonArray[0]
             val word = JSONObject(main.toString()).getString("word")
             val inside = jsonArray.getJSONObject(0).getJSONArray("meanings")
-                .getJSONObject(0).getJSONArray("definitions").getJSONObject(0)
-            val definition = JSONObject(inside.toString()).getString("definition")
+                .getJSONObject(0)
+            val definition = JSONObject(inside.toString()).getString("definitions")
             Log.d("MAIN", "WORD: $word $definition")
             definitions.add(arrayListOf(word, definition))
             rvAdapter.update()
