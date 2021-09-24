@@ -25,8 +25,7 @@ class RVAdapter(private var definitions: ArrayList<ArrayList<String>>): Recycler
 
     override fun getItemCount() = definitions.size
 
-    fun update(definitions: ArrayList<ArrayList<String>>){
-        this.definitions = definitions
+    fun update(){
         notifyDataSetChanged()
     }
 }

@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
             val definition = JSONObject(inside.toString()).getString("definition")
             Log.d("MAIN", "WORD: $word $definition")
             definitions.add(arrayListOf(word, definition))
-            rvAdapter.update(definitions)
+            rvAdapter.update()
             etWord.text.clear()
             etWord.clearFocus()
             rvMain.scrollToPosition(definitions.size - 1)
