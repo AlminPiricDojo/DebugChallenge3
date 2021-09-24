@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             response = URL("https://api.dictionaryapi.dev/api/v2/entries/en/house").readText(Charsets.UTF_8)
         }catch (e: Exception){
             println("Error: $e")
+            Toast.makeText(this, "Unable to get data", Toast.LENGTH_LONG).show()
         }
         return response
     }
